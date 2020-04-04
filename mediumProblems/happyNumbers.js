@@ -1,25 +1,32 @@
 // Find happy numbers
 
 const happy = (num) => {
-    num = num.toString();
-    let ans = 0
+    let ans = squareNumber(num)
+    const seen = []
     while(ans !== 1) {
-        ans = squareNumber(num)
+        if(seen.includes(ans)) {
+            console.log(seen)
+            console.log(ans)
+            return false
+        } else {
+            let current = ans
+            seen.push(current)
+            ans = squareNumber(current)
+        }
     }
+    console.log(seen)
     return true
 }
 
-const squareNumber = (num) => {
-    let ans = 0;
+function squareNumber(num) {
+    num = num.toString()
+    let ans = 0
     for(let i = 0; i < num.length; i++) {
         ans = ans + num[i]**2
     }
     return ans
 }
 
-
-
-const input = 19
-console.log(squareNumber('100'))
+console.log(happy(19))
 
 
