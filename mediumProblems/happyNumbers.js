@@ -5,8 +5,6 @@ const happy = (num) => {
     const seen = []
     while(ans !== 1) {
         if(seen.includes(ans)) {
-            console.log(seen)
-            console.log(ans)
             return false
         } else {
             let current = ans
@@ -14,7 +12,6 @@ const happy = (num) => {
             ans = squareNumber(current)
         }
     }
-    console.log(seen)
     return true
 }
 
